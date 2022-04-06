@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo Введите число a:
+read a
+
+if [ "$a" -lt -1 ]
+then
+echo число a меньше -1
+
+elif [ "$a" -eq 45 ]
+then
+echo число а равно 45
+
+else
+echo число не подходит по условию
+
+fi
