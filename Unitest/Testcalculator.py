@@ -22,5 +22,26 @@ class TestCalculator(unittest.TestCase):
         answer = self.calc.division(12, 3)
         self.assertEqual(answer, 4)
 
+
+class TestCalculator_negative(unittest.TestCase):
+    def setUp(self):
+        self.calc = Calculator()
+
+    def test_nagative_sum(self):
+        answer = self.calc.sum(5, 5)
+        self.assertEqual(answer, 7)
+
+    def test_nagative_deduction(self):
+        answer = self.calc.sum(5, 5)
+        self.assertEqual(answer, 6)
+
+    def test_nagative_multiplication(self):
+        answer = self.calc.sum(5, 5)
+        self.assertEqual(answer, 6)
+
+    def test_nagative_division(self):
+        answer = self.calc.sum(5, 5)
+        self.assertEqual(answer, 3)
+
     if __name__ == "__main__":
         unittest.main()
