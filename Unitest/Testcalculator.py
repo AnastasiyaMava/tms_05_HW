@@ -27,21 +27,21 @@ class TestCalculator_negative(unittest.TestCase):
     def setUp(self):
         self.calc = Calculator()
 
-    def test_nagative_sum(self):
+    def test_negative_sum(self):
         answer = self.calc.sum(5, 5)
-        self.assertEqual(answer, 7)
+        self.assertNotEqual(answer, 7)
 
-    def test_nagative_deduction(self):
+    def test_negative_deduction(self):
         answer = self.calc.sum(5, 5)
-        self.assertEqual(answer, 6)
+        self.assertNotEqual(answer, 6)
 
-    def test_nagative_multiplication(self):
+    def test_negative_multiplication(self):
         answer = self.calc.sum(5, 5)
-        self.assertEqual(answer, 6)
+        self.assertNotEqual(answer, 6)
 
-    def test_nagative_division(self):
+    def test_negative_division(self):
         answer = self.calc.sum(5, 5)
-        self.assertEqual(answer, 3)
+        self.assertNotEqual(answer, 3)
 
     if __name__ == "__main__":
         unittest.main()
