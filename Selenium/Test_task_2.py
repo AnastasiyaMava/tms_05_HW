@@ -8,7 +8,7 @@ class Account_test(unittest.TestCase):
     driver = None
     web_url = 'http://automationpractice.com/'
 
-    login = 'ndobatovkina@yandex.ru'
+    login = 'ndobatovkina3@yandex.ru'
     password = "123456"
     first_name = "Anastasiya"
     last_name = "Dobatovkina"
