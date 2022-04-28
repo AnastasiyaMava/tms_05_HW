@@ -21,14 +21,14 @@ class LoginCase(unittest.TestCase):
     def tearDown(cls) -> None:
         cls.driver.quit()
 
-    def login(self, useremail, userpasswd):
+    def login(self):
         self.driver.find_element(by=By.CLASS_NAME, value="login").click()
         self.driver.find_element(by=By.ID, value='email').send_keys(self.email)
         self.driver.find_element(by=By.ID, value="passwd").send_keys(self.password)
         self.driver.find_element(by=By.ID, value="SubmitLogin").click()
 
     def test_success(self):
-        self.login(self.email, self.password)
+        self.login()
         time.sleep(3)
         link = self.driver.find_element(by=By.CLASS_NAME, value='info-account')
         self.assertTrue('Welcome to your account.' in link.text)
