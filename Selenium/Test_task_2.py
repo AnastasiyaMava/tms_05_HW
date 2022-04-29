@@ -8,7 +8,7 @@ class Account_test(unittest.TestCase):
     driver = None
     web_url = 'http://automationpractice.com/'
 
-    login = 'ndobatovkina3@yandex.ru'
+    login = 'ndobatovkinat@yandex.ru'
     password = "123456"
     first_name = "Anastasiya"
     last_name = "Dobatovkina"
@@ -47,16 +47,26 @@ class Account_test(unittest.TestCase):
         self.driver.find_element(by=By.ID, value="phone_mobile").send_keys(self.phone)
         self.driver.find_element(by=By.ID, value="alias").send_keys(self.address_alias)
         self.driver.find_element(by=By.ID, value="submitAccount").click()
+
+    def information(self):
+        self.driver.find_element(by=By.CLASS_NAME, value="login").click()
+        self.driver.find_element(by=By.ID, value='email').send_keys(self.login)
+        self.driver.find_element(by=By.ID, value="passwd").send_keys(self.password)
+        self.driver.find_element(by=By.ID, value="SubmitLogin").click()
         self.driver.find_element(by=By.XPATH, value='//*[@id="center_column"]/div/div[1]/ul/li[4]/a').click()
 
-    def test_names(self):
+    def test_1_username(self):
         self.create_user()
         name_user = self.driver.find_element(by=By.XPATH, value='//*[@id="header"]/div[2]/div/div/nav/div[1]/a')
         self.assertTrue("Anastasiya Dobatovkina" in name_user.text)
 
+    def test_2_firstname(self):
+        self.information()
         name = self.driver.find_element(by=By.ID, value="firstname")
         self.assertEqual(self.first_name, name.get_attribute("value"))
 
+    def test_3_surname(self):
+        self.information()
         surname = self.driver.find_element(by=By.ID, value="lastname")
         self.assertEqual(self.last_name, surname.get_attribute("value"))
 
