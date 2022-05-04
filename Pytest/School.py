@@ -31,5 +31,3 @@ class School:
 
         for student in stundets_with_automat:
             return f"Student {student.surname} has automat"
-
-
