@@ -37,7 +37,7 @@ class Test_negative:
         pass
 
 
-class School_pozitive:
+class TestsSchool:
 
     def test_show_student_with_marks(self, student):
         mark = student.show_student_with_marks(10, 9)
@@ -50,9 +50,6 @@ class School_pozitive:
     def test_show_students_with_automat(self, student):
         automat = student.show_students_with_automat(7)
         assert automat == 'Student Depp has automat'
-
-
-class School_negative:
 
     def test_show_student_with_marks_neg(self, student):
         marks = student.show_student_with_marks(5, 6)
