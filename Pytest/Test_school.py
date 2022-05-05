@@ -13,7 +13,31 @@ def student():
     return school
 
 
-class TestsSchool:
+@pytest.mark.pozitive
+class Test_pozitive:
+    def test_show_student_with_marks(self):
+        pass
+
+    def test_show_student_with_group(self):
+        pass
+
+    def test_show_students_with_automat(self):
+        pass
+
+
+@pytest.mark.negative
+class Test_negative:
+    def test_show_student_with_marks_neg(self):
+        pass
+
+    def test_show_student_with_group_neg(self):
+        pass
+
+    def test_show_students_with_automat_neg(self):
+        pass
+
+
+class School_pozitive:
 
     def test_show_student_with_marks(self, student):
         mark = student.show_student_with_marks(10, 9)
@@ -26,6 +50,9 @@ class TestsSchool:
     def test_show_students_with_automat(self, student):
         automat = student.show_students_with_automat(7)
         assert automat == 'Student Depp has automat'
+
+
+class School_negative:
 
     def test_show_student_with_marks_neg(self, student):
         marks = student.show_student_with_marks(5, 6)
