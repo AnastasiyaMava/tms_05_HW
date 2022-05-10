@@ -1,8 +1,8 @@
 import json
 
 
-with open("students.json", "r") as pupils_file:
-    list_of_pupils = json.load(pupils_file)
+with open("students.json", "r") as file:
+    list_of_pupils = json.load(file)
 
 # search by class and section
 pupils_class = {}
