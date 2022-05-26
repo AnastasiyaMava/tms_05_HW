@@ -2,3 +2,4 @@ flake8
 pydocstyle
 selenium
 pytest
+allure pytest
