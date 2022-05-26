@@ -1,4 +1,4 @@
 flake8
 pydocstyle
-selenium
+selenium=3.141.0
 pytest
