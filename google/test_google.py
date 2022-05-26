@@ -10,9 +10,9 @@ def web_driver():
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--remote-debugging-port=9222')
+
     driver = webdriver.Chrome(chrome_options=chrome_options,
                               executable_path='./chromedriver')
-    driver.maximize_window()
     driver.get("https://www.google.com/")
     driver.implicitly_wait(10)
     yield driver
