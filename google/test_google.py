@@ -1,30 +1,34 @@
-import pytest
-import time
+import warnings
 
-import selenium.common.exceptions as selenium_exceptions
+import pytest
 from selenium import webdriver
+
+
+class ChromeDriverManager:
+    def install(self):
+        pass
 
 
 @pytest.fixture(scope='class')
 def web_driver():
-    chrome_options = webdriver.ChromeOptions()
+    url = 'https://www.google.com/'
+    chrome_options = Options()
     chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-infobars')
-    chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--remote-debugging-port=9222')
-    driver = webdriver.Chrome(chrome_options=chrome_options,
-                              executable_path='./chromedriver')
 
-    driver.maximize_window()
-    driver.get("https://www.google.com/")
-    driver.implicitly_wait(10)
-    yield driver
-    driver.quit()
+    chrome_options.add_argument('--disable-gpu')
+    warnings.filterwarnings("ignore", category=DeprecationWarning)
+    browser = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
+    browser.set_window_size(1920, 1080)
+
+    browser.get(url)
+    browser.implicitly_wait(2)
+    yield browser
+    browser.quit()
 
 
 class TestGoogle:
 
-    def test_url(self, web_driver):
-        current_url = web_driver.current_url
+    def test_url(self, browser):
+        current_url = browser.current_url
         assert current_url == "https://www.google.com/"
